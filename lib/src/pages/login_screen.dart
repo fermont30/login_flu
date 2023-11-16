@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/src/widgets/custom_filled_button.dart';
 import 'package:login/src/widgets/custom_text_form_field.dart';
-import 'package:login/src/widgets/geometrical_background.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -15,36 +14,39 @@ class LoginScreen extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-          body: GeometricalBackground(
-              child: ListView(
-                  shrinkWrap: true,
-                  physics: const ClampingScrollPhysics(),
-                  children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 80),
-                // Icon Banner
-                const Icon(
-                  Icons.person_2_rounded,
-                  color: Colors.white,
-                  size: 100,
-                ),
-                const SizedBox(height: 80),
-
-                Container(
-                  height: size.height - 150,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: scaffoldBackgroundColor,
-                    borderRadius:
-                        const BorderRadius.only(topLeft: Radius.circular(100)),
+          body: Container(
+        color: Colors.black,
+        child: ListView(
+            shrinkWrap: true,
+            physics: const ClampingScrollPhysics(),
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 80),
+                  // Icon Banner
+                  const Icon(
+                    Icons.person_2_rounded,
+                    color: Colors.white,
+                    size: 100,
                   ),
-                  child: const _LoginForm(),
-                )
-              ],
-            ),
-          ]))),
+
+                  const SizedBox(height: 80),
+
+                  Container(
+                    height: size.height - 150,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: scaffoldBackgroundColor,
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(100)),
+                    ),
+                    child: const _LoginForm(),
+                  )
+                ],
+              ),
+            ]),
+      )),
     );
   }
 }
